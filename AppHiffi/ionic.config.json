@@ -1,0 +1,7 @@
+{
+  "name": "AppHiffi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
