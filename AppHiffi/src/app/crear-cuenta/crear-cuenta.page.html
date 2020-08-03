@@ -1,9 +1,49 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>CrearCuenta</ion-title>
+    <ion-title>Crear Cuenta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="https://www.hiffigroup.org/wp-content/uploads/2020/07/avatar-1.png">
+      </ion-avatar>
+      <ion-button shape="round" fill="outline">Agregar una foto</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+      <ion-label position="floating">Tu nombre</ion-label>
+      <ion-input ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="people-outline"></ion-icon>
+      <ion-label position="floating">Nombre de la Empresa</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-icon slot="start" name="ribbon-outline"></ion-icon>
+        <ion-label position="floating">Puesto</ion-label>
+        <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      <ion-label position="floating">Tu E-mail</ion-label>
+      <ion-input></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input></ion-input>
+    </ion-item> 
+  </ion-list>
+  <div style="display:flex; justify-content: center;" >
+    <ion-button shape="round" style="margin: 20px;">Listo</ion-button>
+  </div>
+      <div>
+            <ion-footer style="display:flex; justify-content: center;">
+              ¿Ya tienes cuenta? <a routerLink="/loggin" >Iniciar Sesión</a>
+            </ion-footer>
+          </div>
 </ion-content>
