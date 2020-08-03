@@ -1,0 +1,19 @@
+ion-grid{
+    --ion-grid-padding:20px;
+}
+
+.align-text-middle {
+    display: flex;
+    justify-content: center;
+}
+
+img { 
+    width:100% !important; 
+    height : 100% !important; 
+    max-width: 100px !important; //any size 
+    max-height: 100px !important; //any size 
+    } 
+
+.col-space-to-separate{
+    margin: 20px;
+}
