@@ -1,0 +1,35 @@
+
+
+ion-content {
+
+    img { 
+        width:400px !important; 
+        height : 150px !important; 
+        } 
+    
+
+    .background{
+        
+        --background: url(https://www.hiffigroup.org/wp-content/uploads/2020/08/splash.png);
+    
+    }
+
+ion-grid{
+    --ion-grid-padding:10px;
+
+    .center{
+        text-align: center;
+    }
+
+
+.align-text-middle {
+    display: flex;
+    justify-content: center;
+}
+
+.col-space-to-separate{
+    margin: 20px;
+        }
+    }
+
+}
