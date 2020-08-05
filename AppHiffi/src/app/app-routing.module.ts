@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'resultadoshiffi',
     loadChildren: () => import('./resultadoshiffi/resultadoshiffi.module').then( m => m.ResultadoshiffiPageModule)
+  },
+  {
+    path: 'graficos-xuser',
+    loadChildren: () => import('./graficos-xuser/graficos-xuser.module').then( m => m.GraficosXuserPageModule)
   }
 ];
 
