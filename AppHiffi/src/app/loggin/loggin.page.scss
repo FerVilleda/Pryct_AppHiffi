@@ -1,4 +1,8 @@
-ion-grid{
+ion-content.background-image{
+   
+    --background: url('../../assets/splash.png') 0 0/100% 100% no-repeat;
+
+ion-grid{   
     --ion-grid-padding:20px;
 }
 
@@ -16,4 +20,6 @@ img {
 
 .col-space-to-separate{
     margin: 20px;
+}
+
 }

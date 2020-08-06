@@ -1,9 +1,7 @@
-ion-content {
-    .background{
-        
-        --background: url(https://www.hiffigroup.org/wp-content/uploads/2020/08/splash.png);
-    
-    }
+ion-content.background-image{
+   
+        --background: url('../../assets/splash.png') 0 0/100% 100% no-repeat;
+      
 
 ion-grid{
     --ion-grid-padding:30px;
