@@ -1,9 +1,54 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>assessmenthiffi</ion-title>
-  </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
-
+  <ion-grid style="margin: 5px;">
+    <ion-row style="margin-top: 40px;">
+      <ion-col>
+        <ion-list>
+          <ion-radio-group>
+            <ion-list-header>
+              <ion-label style="font-size: 16px; text-align: justify;">
+                To what extent are your innovation efforts contributing to the organization's financial performance?
+              </ion-label>
+            </ion-list-header>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;"> Don´t have a formal way to create and update the strategy.</ion-label>
+              <ion-radio slot="start" color="danger" value="1"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Have a periodic approach, it's focused to a short-term orientation. </ion-label>
+              <ion-radio slot="start" color="warning" value="2"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Have a periodic approach that allows a long-term strategy every year.</ion-label>
+              <ion-radio slot="start" color="tertiary" value="3"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Have a disciplined approach that allows a long-term strategy to be created, through the year.</ion-label>
+              <ion-radio slot="start" color="secondary" value="4"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Don´t have a formal way to create and update the strategy.</ion-label>
+              <ion-radio slot="start" color="success" value="5"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-top: 30px;">
+      <ion-col style="text-align: center;">
+        <ion-button shape="round" fill="outline">PREVIOUS</ion-button>
+      </ion-col>
+      <ion-col style="text-align: center;">
+        <ion-button shape="round" fill="outline">NEXT</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
