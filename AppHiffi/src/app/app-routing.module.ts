@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'graficos-xuser',
     loadChildren: () => import('./graficos-xuser/graficos-xuser.module').then( m => m.GraficosXuserPageModule)
+  },  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   }
+
 ];
 
 @NgModule({
