@@ -3,44 +3,34 @@
   <ion-grid style="margin: 3px;">
     <ion-col style="margin-top: 40px;">
       <ion-row>
-        <ion-list>
-          <ion-item>
-            <ion-avatar slot="start">
-              <img src="https://www.hiffigroup.org/wp-content/uploads/2020/07/avatar-1.png">
-            </ion-avatar>
-            <ion-button shape="round" fill="outline">Agregar una foto</ion-button>
-          </ion-item>
-          <ion-item>
-            <ion-icon slot="start" name="person-outline"></ion-icon>
-            <ion-label position="floating">Tu nombre</ion-label>
-            <ion-input ></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-icon slot="start" name="people-outline"></ion-icon>
-            <ion-label position="floating">Nombre de la Empresa</ion-label>
-            <ion-input></ion-input>
-          </ion-item>
-          <ion-item>
-              <ion-icon slot="start" name="ribbon-outline"></ion-icon>
-              <ion-label position="floating">Puesto</ion-label>
-              <ion-input></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-icon slot="start" name="mail-outline"></ion-icon>
-            <ion-label position="floating">Tu E-mail</ion-label>
-            <ion-input></ion-input>
-          </ion-item> 
-          <ion-item>
-            <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
-            <ion-label position="floating">Contraseña</ion-label>
-            <ion-input></ion-input>
-          </ion-item> 
-        </ion-list>
+        <ion-grid>
+          <ion-row style="margin-top: 45px;"> 
+            <ion-col col-12 style="display:flex; justify-content: center;">
+                <img src="https://www.hiffigroup.org/wp-content/uploads/2020/07/avatar-1.png">
+            </ion-col>        
+          </ion-row>
+          <ion-row>
+            <ion-col col-12>
+              <ion-item>
+                <ion-label position="floating">Usuario</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+            </ion-col>        
+          </ion-row>
+          <ion-row>
+            <ion-col col-12>
+              <ion-item>
+                <ion-label position="floating">Contraseña</ion-label>
+                <ion-input type="password"></ion-input>
+              </ion-item>
+            </ion-col> 
+          </ion-row> 
+        </ion-grid>
       </ion-row>
     </ion-col>
     <ion-row > 
       <ion-col   style="display:flex; justify-content: center;" class="col-space-to-separate">
-        <ion-button shape="round" style="margin: 20;" routerLink="/graciasxunirte">Listo</ion-button>
+        <ion-button shape="round" style="margin: 20;" routerLink="/graciasxunirte">Crear Cuenta</ion-button>
       </ion-col>
     </ion-row>
     <ion-row style="margin: 15px;" >
