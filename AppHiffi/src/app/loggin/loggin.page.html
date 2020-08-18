@@ -12,8 +12,8 @@
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-label position="floating">Usuario</ion-label>
-          <ion-input></ion-input>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input type="text" [(ngModel)]="user.email"></ion-input>
         </ion-item>
       </ion-col>        
     </ion-row>
@@ -21,7 +21,7 @@
       <ion-col col-12>
         <ion-item>
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="user.password"></ion-input>
         </ion-item>
       </ion-col> 
     </ion-row> 
@@ -30,7 +30,7 @@
     <ion-grid>
       <ion-row > 
         <ion-col class="align-text-middle">
-          <ion-button shape="round" fill="outline" routerLink="/graciasxunirte">ENTRAR</ion-button>
+          <ion-button shape="round" fill="outline" (click)="onLogin()">ENTRAR</ion-button>
         </ion-col>
       </ion-row>
       <ion-row style="margin: 15px;" >
