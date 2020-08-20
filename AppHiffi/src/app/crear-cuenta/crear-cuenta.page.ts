@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { User } from '../shared/user.class';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-crear-cuenta',
@@ -10,7 +11,7 @@ import { User } from '../shared/user.class';
 })
 export class CrearCuentaPage implements OnInit {
   user: User = new User();
-  constructor( private authSvc: AuthService, private router: Router) { }
+  constructor( private authSvc: AuthService, private router: Router, private menuCtrl: MenuController) { }
 
   ngOnInit() {
   }
@@ -22,6 +23,10 @@ export class CrearCuentaPage implements OnInit {
       console.log('Se ha creado el usuario exitosamente');
       this.router.navigateByUrl('/graciasxunirte');
     }
+  }
+
+  ionViewWillEnter(){
+    this.menuCtrl.enable(false);
   }
 
 }

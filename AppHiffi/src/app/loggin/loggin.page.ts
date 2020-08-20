@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { User } from '../shared/user.class';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-loggin',
@@ -10,7 +11,7 @@ import { User } from '../shared/user.class';
 })
 export class LogginPage implements OnInit {
   user : User = new User();
-  constructor( private router: Router, private authSvc:AuthService) { }
+  constructor( private router: Router, private authSvc:AuthService, public menuCtrl: MenuController) { }
 
   ngOnInit() {
   }
@@ -22,6 +23,9 @@ export class LogginPage implements OnInit {
       console.log('Inicio de sesion exitoso');
       this.router.navigateByUrl('/contenido');
     }
+  }
+  ionViewWillEnter(){
+    this.menuCtrl.enable(false);
   }
 
 }
