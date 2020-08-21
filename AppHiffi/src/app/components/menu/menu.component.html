@@ -6,8 +6,15 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item>Mi perfil</ion-item>
-      <ion-item (click)="onLogout()">Cerrar sesión</ion-item>
+      <ion-menu-toggle>
+        <ion-item routerLink="/perfil">Mi perfil</ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item routerLink="/contenido">Inicio</ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item (click)="onLogout()">Cerrar sesión</ion-item>
+      </ion-menu-toggle>     
     </ion-list>
   </ion-content>
 </ion-menu>
