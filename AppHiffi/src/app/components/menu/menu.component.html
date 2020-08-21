@@ -7,13 +7,22 @@
   <ion-content>
     <ion-list>
       <ion-menu-toggle>
-        <ion-item routerLink="/perfil">Mi perfil</ion-item>
+        <ion-item routerLink="/perfil">
+          <ion-icon name="person-circle-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>Mi perfil</ion-label>
+        </ion-item>        
       </ion-menu-toggle>
       <ion-menu-toggle>
-        <ion-item routerLink="/contenido">Inicio</ion-item>
+        <ion-item routerLink="/contenido">
+          <ion-icon name="home-sharp" slot="start" color="primary"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-item>
       </ion-menu-toggle>
       <ion-menu-toggle>
-        <ion-item (click)="onLogout()">Cerrar sesión</ion-item>
+        <ion-item (click)="onLogout()">
+          <ion-icon name="log-out" slot="start" color="primary"></ion-icon>
+          <ion-label>Cerrar sesión</ion-label>
+        </ion-item>
       </ion-menu-toggle>     
     </ion-list>
   </ion-content>
