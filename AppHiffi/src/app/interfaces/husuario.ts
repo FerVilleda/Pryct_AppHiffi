@@ -1,5 +1,6 @@
 export interface HUsuario {
     nombre: string, 
     nombreEmpresa: string,
-    puesto: string
+    puesto: string,
+    image: any
 }

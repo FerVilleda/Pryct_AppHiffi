@@ -19,6 +19,6 @@ export class PerfilPage implements OnInit {
   }
 
   consultando(){
-    this.firebaseService.getTasks()
+    this.firebaseService.getTasks(document)
   }
 }
