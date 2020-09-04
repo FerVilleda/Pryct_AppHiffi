@@ -20,17 +20,17 @@
           <ion-item>
             <ion-icon slot="start" name="person-outline"></ion-icon>
             <ion-label position="floating">Tu nombre</ion-label>
-            <ion-input ></ion-input>
+            <ion-input [(ngModel)]="usuarioActual.nombre"></ion-input>
           </ion-item>
           <ion-item>
             <ion-icon slot="start" name="people-outline"></ion-icon>
-            <ion-label position="floating">Nombre de la Empresa</ion-label>
-            <ion-input></ion-input>
+            <ion-label position="floating" >Nombre de la Empresa</ion-label>
+            <ion-input [(ngModel)]="usuarioActual.nombreEmpresa"></ion-input>
           </ion-item>
           <ion-item>
               <ion-icon slot="start" name="ribbon-outline"></ion-icon>
               <ion-label position="floating">Puesto</ion-label>
-              <ion-input></ion-input>
+              <ion-input [(ngModel)]="usuarioActual.puesto"></ion-input>
           </ion-item>
         </ion-list>
       </ion-row>
@@ -40,7 +40,7 @@
         <ion-button shape="round" style="margin: 20;" routerLink="/perfil">Cancelar</ion-button>
       </ion-col>
       <ion-col   style="display:flex; justify-content: center;" class="col-space-to-separate">
-        <ion-button shape="round" style="margin: 20;" routerLink="/contenido">Guardar</ion-button>
+        <ion-button shape="round" style="margin: 20;" routerLink="/contenido" (click)="clicBotonGuardar()">Guardar</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

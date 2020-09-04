@@ -17,6 +17,6 @@ export class MenuComponent implements OnInit {
   onLogout(){
     console.log('Sesion cerrada');
     this.afAuth.signOut();
-    this.router.navigateByUrl('/loggin');
+    this.router.navigateByUrl('/loggin');   
   }
 }

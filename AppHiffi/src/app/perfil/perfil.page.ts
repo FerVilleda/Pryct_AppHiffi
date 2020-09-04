@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HUsuario } from '../interfaces/husuario';
+import { FirebaseService } from '../services/firebase.service'
 
 @Component({
   selector: 'app-perfil',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
+  document: any = {
+    id: "",
+    data: {} as HUsuario
+  };
 
-  constructor() { }
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
   }
 
+  consultando(){
+    this.firebaseService.getTasks()
+  }
 }

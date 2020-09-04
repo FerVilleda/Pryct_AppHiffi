@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../services/firebase.service';
+import { HUsuario } from '../interfaces/husuario';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -7,7 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditarPerfilPage implements OnInit {
 
-  constructor() { }
+  usuarioActual : HUsuario;
+
+  constructor( private firebaseService: FirebaseService) {
+    //Crear usuario vacio
+    this.usuarioActual = {} as HUsuario;
+   }
+   clicBotonGuardar(){
+     this.firebaseService.insertar(this.usuarioActual).then(() => {
+       console.log('Datos de usurio guardado correctamente');
+       this.usuarioActual = {} as HUsuario;
+     }, (error) =>{
+       console.error(error);
+     });  
+   }
 
   ngOnInit() {
   }

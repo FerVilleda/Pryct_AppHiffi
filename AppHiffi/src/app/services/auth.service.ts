@@ -13,9 +13,10 @@ export class AuthService {
    }
 
 
-   //Loggin
+   //Login
    async onLogin (user:User){
      try {
+       this.isLogged = true;
        return await this.afAuth.signInWithEmailAndPassword(
          user.email, 
          user.password
