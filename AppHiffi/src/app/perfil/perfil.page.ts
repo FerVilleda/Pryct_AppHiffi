@@ -3,6 +3,8 @@ import { HUsuario } from '../interfaces/husuario';
 import { FirebaseService } from '../services/firebase.service'
 import { database } from 'firebase';
 import { userInfo } from 'os';
+import { ResultadoshiffiPage } from '../resultadoshiffi/resultadoshiffi.page';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-perfil',
@@ -10,32 +12,31 @@ import { userInfo } from 'os';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-  document: any = {
-    id: "",
-    data: {} as HUsuario
-  };
-  info: HUsuario;
-  UserData: HUsuario;
+  
+  lblUserName: string;
+  lblUserEmpName: string;
+  lblUserPuesto: string;
   
 
   constructor(private firebaseService: FirebaseService) { }
 
-  ngOnInit() {
-    this.info = this.hacerConsulta(this.UserData); 
+  async ngOnInit() {
+    const userData = await this.ObtenerPerfil();
+    this.MostrarDatos(userData);
   }
 
-  hacerConsulta(data:HUsuario){
-      this.firebaseService.getUserProfileData().then(function(resultado){
-      console.log(resultado.nombre);
+  ObtenerPerfil(){
+      return this.firebaseService.getUserProfileData().then(function(resultado){
+      var data: HUsuario;
       data = resultado;
-    })
-    return data;
-  } 
+      return data;
+      })
+  }
 
-
-  Pruebas(){
-    this.firebaseService.getUserProfileData().then(function(resultado){
-    console.log(resultado.nombre);
-  })
-} 
+  MostrarDatos(data:HUsuario){
+    this.lblUserName = data.nombre
+    this.lblUserEmpName = data.nombreEmpresa;
+    this.lblUserPuesto = data.puesto;
+  }
+ 
 }
