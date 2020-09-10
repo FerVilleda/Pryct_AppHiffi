@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import { FirebaseService } from '../services/firebase.service'
+import { Assessment } from '../interfaces/assessment';
 
 @Component({
   selector: 'app-graficos-xuser',
@@ -12,23 +14,37 @@ export class GraficosXuserPage implements OnInit {
 
   bars: any;
   colorArray: any;
-  constructor() { }
+  respues = new Array();
+  act: Assessment;
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
   }
 
-  ionViewDidEnter() {
-    this.createBarChart();
+  obtenRespuestas(){
+    return this.firebaseService.obtenerRespuestas().then(function(r){
+      var data: Assessment;
+      data = r;
+      return data;
+    })
+  }
+
+  async ionViewDidEnter() {
+    const act = await this.obtenRespuestas();
+    console.log(act);
+    this.createBarChart(act.Respuestas);
     this.createGenerateChart();
   }
-  createBarChart() {
+
+
+  createBarChart(datos) {
     this.bars = new Chart(this.barChart.nativeElement,{
       type: 'line',
       data: {
         labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'],
         datasets: [{
           label: 'Your responses',
-          data: [2, 3, 3, 2, 3, 3, 3, 4],
+          data: datos,
           backgroundColor: 'rgba(0,0,0,0)', // array should have same number of elements as number of dataset
           borderColor: 'rgb(39, 69, 204)',// array should have same number of elements as number of dataset
           borderWidth: 2
