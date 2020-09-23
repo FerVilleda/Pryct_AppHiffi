@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service'
 import { Assessment } from '../interfaces/assessment';
 import { IonSlides } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-assessmenthiffi',
@@ -22,7 +23,7 @@ export class AssessmenthiffiPage implements OnInit {
   slideIndex = 0; 
   e: any;
 
-  constructor(private firebaseService: FirebaseService) {
+  constructor(private firebaseService: FirebaseService, public router : Router) {
     this.resActual = {} as Assessment;
    }
 
@@ -33,12 +34,21 @@ export class AssessmenthiffiPage implements OnInit {
 
   async Next(){
     const idx = await this.slideChanged(this.e);
-    console.log("Index del slide")
-    console.log(idx);
-    this.respuestas.push(this.res);
-    this.resActual.Respuestas = this.respuestas;
-    console.log(this.respuestas);
-    this.slides.slideNext();
+    if (idx == 6) {
+      this.respuestas.push(this.res);
+      this.resActual.Respuestas = this.respuestas;
+      this.firebaseService.insertarRespuestas(this.resActual).then(() => {
+        console.log('Respuestas guardadas correctamente');
+      }, (error) =>{
+        console.error(error);
+      });
+      this.router.navigateByUrl("/resultadoshiffi");     
+    } else {
+      this.respuestas.push(this.res);
+      this.resActual.Respuestas = this.respuestas;
+      console.log(this.respuestas);
+      this.slides.slideNext();
+    }
   }
   
   checkValue(event){
@@ -50,7 +60,6 @@ export class AssessmenthiffiPage implements OnInit {
 
   slideChanged(e: any) {
     return this.slides.getActiveIndex().then((index: number) => {
-        //console.log(index);
         if (index > 0) {
           this.disablePrevBtn = false;
         }
