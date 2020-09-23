@@ -1,6 +1,11 @@
 ion-content.background-image{ 
 
     --background: url('../../assets/fondo2.png') 0 0/100% 100% no-repeat;
+
+    img{
+      display:block;
+      margin:auto;
+      }
   
       ion-list{
   

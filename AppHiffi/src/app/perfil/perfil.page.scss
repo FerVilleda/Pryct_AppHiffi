@@ -1,6 +1,11 @@
 ion-content.background-image{ 
 
     --background: url('../../assets/fondo2.png') 0 0/100% 100% no-repeat;
+
+     img{
+         display:block;
+         margin:auto;
+         }
   
       ion-list{
   
@@ -8,10 +13,10 @@ ion-content.background-image{
   
               ion-avatar{
                       height: 120px;
-                      width: 120px    
+                      width: 120px;    
+                      
               }
   
               }
           }   
         }    
-      
