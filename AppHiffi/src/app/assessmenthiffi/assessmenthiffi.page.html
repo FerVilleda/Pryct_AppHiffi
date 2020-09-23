@@ -8,8 +8,8 @@
 
 <ion-content  padding class="background-image">
   <ion-grid style="margin: 3px;">
-    <ion-row>
-      <ion-col>
+    <ion-slides #slides pager="true" (ionSlideWillChange)="slideChanged()" (ionSlideReachEnd)="isLast()" (ionSlidesDidLoad)="isFirst()" (ionSlideReachStart)="isFirst()">
+      <ion-slide Index=1>
         <ion-list>
           <ion-radio-group name="Opciones" (ionChange)="checkValue($event)">
             <ion-list-header>
@@ -43,14 +43,230 @@
             </ion-item>
           </ion-radio-group>
         </ion-list>
-      </ion-col>
-    </ion-row>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-list>
+          <ion-radio-group name="Opciones" (ionChange)="checkValue($event)">
+            <ion-list-header>
+              <ion-label style="font-size: 16px; text-align: justify;">
+                ¿En qué medida sus esfuerzos de innovación contribuyen al desempeño financiero de la organización?
+              </ion-label>
+            </ion-list-header>       
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;"> No tiene una forma formal de crear y actualizar la estrategia.</ion-label>
+              <ion-radio slot="start" color="danger" value="1"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque periódico, está enfocado a una orientación a corto plazo. </ion-label>
+              <ion-radio slot="start" color="warning" value="2"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque periódico que permite una estrategia a largo plazo todos los años.</ion-label>
+              <ion-radio slot="start" color="tertiary" value="3"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque disciplinado que permite crear una estrategia a largo plazo, a lo largo del año.</ion-label>
+              <ion-radio slot="start" color="secondary" value="4"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene una manera formal y disciplinada de crear y actualizar la estrategia constantemente.</ion-label>
+              <ion-radio slot="start" color="success" value="5"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-list>
+          <ion-radio-group name="Opciones" (ionChange)="checkValue($event)">
+            <ion-list-header>
+              <ion-label style="font-size: 16px; text-align: justify;">
+                ¿En qué medida sus esfuerzos de innovación contribuyen al desempeño financiero de la organización?
+              </ion-label>
+            </ion-list-header>       
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;"> No tiene una forma formal de crear y actualizar la estrategia.</ion-label>
+              <ion-radio slot="start" color="danger" value="1"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque periódico, está enfocado a una orientación a corto plazo. </ion-label>
+              <ion-radio slot="start" color="warning" value="2"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque periódico que permite una estrategia a largo plazo todos los años.</ion-label>
+              <ion-radio slot="start" color="tertiary" value="3"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque disciplinado que permite crear una estrategia a largo plazo, a lo largo del año.</ion-label>
+              <ion-radio slot="start" color="secondary" value="4"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene una manera formal y disciplinada de crear y actualizar la estrategia constantemente.</ion-label>
+              <ion-radio slot="start" color="success" value="5"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-list>
+          <ion-radio-group name="Opciones" (ionChange)="checkValue($event)">
+            <ion-list-header>
+              <ion-label style="font-size: 16px; text-align: justify;">
+                ¿En qué medida sus esfuerzos de innovación contribuyen al desempeño financiero de la organización?
+              </ion-label>
+            </ion-list-header>       
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;"> No tiene una forma formal de crear y actualizar la estrategia.</ion-label>
+              <ion-radio slot="start" color="danger" value="1"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque periódico, está enfocado a una orientación a corto plazo. </ion-label>
+              <ion-radio slot="start" color="warning" value="2"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque periódico que permite una estrategia a largo plazo todos los años.</ion-label>
+              <ion-radio slot="start" color="tertiary" value="3"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque disciplinado que permite crear una estrategia a largo plazo, a lo largo del año.</ion-label>
+              <ion-radio slot="start" color="secondary" value="4"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene una manera formal y disciplinada de crear y actualizar la estrategia constantemente.</ion-label>
+              <ion-radio slot="start" color="success" value="5"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-list>
+          <ion-radio-group name="Opciones" (ionChange)="checkValue($event)">
+            <ion-list-header>
+              <ion-label style="font-size: 16px; text-align: justify;">
+                ¿En qué medida sus esfuerzos de innovación contribuyen al desempeño financiero de la organización?
+              </ion-label>
+            </ion-list-header>       
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;"> No tiene una forma formal de crear y actualizar la estrategia.</ion-label>
+              <ion-radio slot="start" color="danger" value="1"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque periódico, está enfocado a una orientación a corto plazo. </ion-label>
+              <ion-radio slot="start" color="warning" value="2"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque periódico que permite una estrategia a largo plazo todos los años.</ion-label>
+              <ion-radio slot="start" color="tertiary" value="3"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque disciplinado que permite crear una estrategia a largo plazo, a lo largo del año.</ion-label>
+              <ion-radio slot="start" color="secondary" value="4"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene una manera formal y disciplinada de crear y actualizar la estrategia constantemente.</ion-label>
+              <ion-radio slot="start" color="success" value="5"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-list>
+          <ion-radio-group name="Opciones" (ionChange)="checkValue($event)">
+            <ion-list-header>
+              <ion-label style="font-size: 16px; text-align: justify;">
+                ¿En qué medida sus esfuerzos de innovación contribuyen al desempeño financiero de la organización?
+              </ion-label>
+            </ion-list-header>       
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;"> No tiene una forma formal de crear y actualizar la estrategia.</ion-label>
+              <ion-radio slot="start" color="danger" value="1"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque periódico, está enfocado a una orientación a corto plazo. </ion-label>
+              <ion-radio slot="start" color="warning" value="2"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque periódico que permite una estrategia a largo plazo todos los años.</ion-label>
+              <ion-radio slot="start" color="tertiary" value="3"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque disciplinado que permite crear una estrategia a largo plazo, a lo largo del año.</ion-label>
+              <ion-radio slot="start" color="secondary" value="4"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene una manera formal y disciplinada de crear y actualizar la estrategia constantemente.</ion-label>
+              <ion-radio slot="start" color="success" value="5"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-list>
+          <ion-radio-group name="Opciones" (ionChange)="checkValue($event)">
+            <ion-list-header>
+              <ion-label style="font-size: 16px; text-align: justify;">
+                ¿En qué medida sus esfuerzos de innovación contribuyen al desempeño financiero de la organización?
+              </ion-label>
+            </ion-list-header>       
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;"> No tiene una forma formal de crear y actualizar la estrategia.</ion-label>
+              <ion-radio slot="start" color="danger" value="1"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque periódico, está enfocado a una orientación a corto plazo. </ion-label>
+              <ion-radio slot="start" color="warning" value="2"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque periódico que permite una estrategia a largo plazo todos los años.</ion-label>
+              <ion-radio slot="start" color="tertiary" value="3"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene un enfoque disciplinado que permite crear una estrategia a largo plazo, a lo largo del año.</ion-label>
+              <ion-radio slot="start" color="secondary" value="4"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;">Tiene una manera formal y disciplinada de crear y actualizar la estrategia constantemente.</ion-label>
+              <ion-radio slot="start" color="success" value="5"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-slide>
+    </ion-slides>
     <ion-row>
       <ion-col style="text-align: center;">
-        <ion-button shape="round" fill="outline">ANTERIOR</ion-button>
+        <ion-button shape="round" fill="outline" *ngIf="!disablePrevBtn">ANTERIOR</ion-button>
       </ion-col>
       <ion-col style="text-align: center;">
-        <ion-button shape="round" fill="outline" routerLink="/resultadoshiffi" (click)="IntegrarRespuesta()">SIGUIENTE</ion-button>
+        <ion-button *ngIf="!disableNextBtn" shape="round" fill="outline" (click)="Next()">{{buttonName}}</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service'
 import { Assessment } from '../interfaces/assessment';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-assessmenthiffi',
@@ -8,27 +9,36 @@ import { Assessment } from '../interfaces/assessment';
   styleUrls: ['./assessmenthiffi.page.scss'],
 })
 export class AssessmenthiffiPage implements OnInit {
+  @ViewChild('slides', {static: true}) slides : IonSlides;
+
   respuestas = new Array();
   res: number;
   Opciones;
   resActual: Assessment;
+ 
+  buttonName: string;
+  disablePrevBtn = false;
+  disableNextBtn = false;
+  slideIndex = 0; 
+  e: any;
 
   constructor(private firebaseService: FirebaseService) {
     this.resActual = {} as Assessment;
    }
 
   ngOnInit() {
+    this.buttonName = "Siguiente";
+    
   }
 
-  async IntegrarRespuesta(){
-    this.respuestas.push(2,3,1,1)
+  async Next(){
+    const idx = await this.slideChanged(this.e);
+    console.log("Index del slide")
+    console.log(idx);
     this.respuestas.push(this.res);
     this.resActual.Respuestas = this.respuestas;
-    this.firebaseService.insertarRespuestas(this.resActual).then(() => {
-      console.log('Respuestas guardadas correctamente');
-    }, (error) =>{
-      console.error(error);
-    });
+    console.log(this.respuestas);
+    this.slides.slideNext();
   }
   
   checkValue(event){
@@ -37,4 +47,30 @@ export class AssessmenthiffiPage implements OnInit {
     return this.res;
   }
 
+
+  slideChanged(e: any) {
+    return this.slides.getActiveIndex().then((index: number) => {
+        //console.log(index);
+        if (index > 0) {
+          this.disablePrevBtn = false;
+        }
+        return index
+    });
+  }
+
+  isLast(){
+    this.buttonName = "Finalizar";
+  }
+
+  isFirst(){
+    this.buttonName = "Siguiente";
+    this.disablePrevBtn = true;
+  }
+
+
+
+
+
+
+  
 }
