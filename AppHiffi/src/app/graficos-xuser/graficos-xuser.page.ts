@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { FirebaseService } from '../services/firebase.service'
 import { Assessment } from '../interfaces/assessment';
+//import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-graficos-xuser',
@@ -16,9 +19,40 @@ export class GraficosXuserPage implements OnInit {
   colorArray: any;
   respues = new Array();
   act: Assessment;
-  constructor(private firebaseService: FirebaseService) { }
+  constructor(private firebaseService: FirebaseService,  public alertController: AlertController, public router: Router) { }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Algo salió mal',
+      subHeader: 'No encontramos datos',
+      message: 'Parece que no has respondido el cuestionario',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            this.router.navigateByUrl("/contenido")
+          }
+        }, 
+        {
+          text: 'Cuestionario',
+          handler: (cues) => {
+            this.router.navigateByUrl("/assessmenthiffi")
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 
   ngOnInit() {
+  }
+  
+  openSystem() {
+    console.log("hiffibutton")
   }
 
   obtenRespuestas(){
@@ -32,7 +66,12 @@ export class GraficosXuserPage implements OnInit {
   async ionViewDidEnter() {
     const act = await this.obtenRespuestas();
     console.log(act);
-    this.createBarChart(act.Respuestas);
+    if (act != null) {
+      this.createBarChart(act.Respuestas);
+    }else{
+      this.presentAlert();
+    }
+    
     //this.createGenerateChart();
   }
 

@@ -18,8 +18,8 @@ export class CrearCuentaPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Algo salió mal',
-      subHeader: 'Contraseña demasiado corta',
-      message: 'Tu contraseña debe tener al menos 6 caracteres.',
+      subHeader: 'Verifica tus datos',
+      message: 'El e-mail no cumple con el formato o la contraseña es demasido corta, debe tener al menos 6 caracteres.',
       buttons: ['OK']
     });
 
