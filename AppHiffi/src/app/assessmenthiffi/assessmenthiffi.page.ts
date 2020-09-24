@@ -35,7 +35,7 @@ export class AssessmenthiffiPage implements OnInit {
   async Next(){
     const idx = await this.slideChanged(this.e);
     if (idx == 6) {
-      this.respuestas.push(this.res);
+      this.respuestas[idx] = this.res;
       this.resActual.Respuestas = this.respuestas;
       this.firebaseService.insertarRespuestas(this.resActual).then(() => {
         console.log('Respuestas guardadas correctamente');
@@ -44,11 +44,16 @@ export class AssessmenthiffiPage implements OnInit {
       });
       this.router.navigateByUrl("/resultadoshiffi");     
     } else {
-      this.respuestas.push(this.res);
+      this.respuestas[idx]=this.res;
       this.resActual.Respuestas = this.respuestas;
       console.log(this.respuestas);
       this.slides.slideNext();
     }
+  }
+
+  Prev(){
+    this.buttonName = "Siguiente";
+    this.slides.slidePrev();
   }
   
   checkValue(event){
@@ -76,7 +81,11 @@ export class AssessmenthiffiPage implements OnInit {
     this.disablePrevBtn = true;
   }
 
-
+  ObtenerRespuesta(event){
+    var vaor = event;
+    console.log("ver valor siii selecciono el 1 de la primera respuesta");
+    console.log(vaor);
+  }
 
 
 

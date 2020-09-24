@@ -19,7 +19,7 @@
             </ion-list-header>       
             <ion-item>
               <ion-label class="ion-text-wrap" style="font-size: 15px; text-align: justify;"> No tiene una forma formal de crear y actualizar la estrategia.</ion-label>
-              <ion-radio slot="start" color="danger" value="1"></ion-radio>
+              <ion-radio slot="start" color="danger" value="1" (ionFocus)="ObtenerRespuesta($event)"></ion-radio>
             </ion-item>
         
             <ion-item>
@@ -263,7 +263,7 @@
     </ion-slides>
     <ion-row>
       <ion-col style="text-align: center;">
-        <ion-button shape="round" fill="outline" *ngIf="!disablePrevBtn">ANTERIOR</ion-button>
+        <ion-button shape="round" fill="outline" *ngIf="!disablePrevBtn" (click)="Prev()">ANTERIOR</ion-button>
       </ion-col>
       <ion-col style="text-align: center;">
         <ion-button *ngIf="!disableNextBtn" shape="round" fill="outline" (click)="Next()">{{buttonName}}</ion-button>
