@@ -76,8 +76,8 @@ export class AssessmenthiffiPage implements OnInit {
         this.r5 = Number(event.detail.value);
         break;
       case 5:
-          this.r6 = Number(event.detail.value);
-          break;
+        this.r6 = Number(event.detail.value);
+        break;
       case 6:
         this.r7 = Number(event.detail.value);
         break;

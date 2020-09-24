@@ -25,6 +25,12 @@ export class PerfilPage implements OnInit {
     this.MostrarDatos(userData);
   }
 
+  async ionViewDidEnter() {
+    const userData = await this.ObtenerPerfil();
+    this.MostrarDatos(userData);
+    //this.createGenerateChart();
+  }
+
   ObtenerPerfil(){
       return this.firebaseService.getUserProfileData().then(function(resultado){
       var data: HUsuario;
@@ -38,5 +44,7 @@ export class PerfilPage implements OnInit {
     this.lblUserEmpName = data.nombreEmpresa;
     this.lblUserPuesto = data.puesto;
   }
+
+
  
 }

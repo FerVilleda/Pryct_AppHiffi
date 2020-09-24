@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { User } from '../shared/user.class';
 import { MenuController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-crear-cuenta',
@@ -11,17 +12,33 @@ import { MenuController } from '@ionic/angular';
 })
 export class CrearCuentaPage implements OnInit {
   user: User = new User();
-  constructor( private authSvc: AuthService, private router: Router, private menuCtrl: MenuController) { }
+  constructor( private authSvc: AuthService, private router: Router, private menuCtrl: MenuController, public alertController: AlertController) { }
 
-  ngOnInit() {
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Algo salió mal',
+      subHeader: 'Contraseña demasiado corta',
+      message: 'Tu contraseña debe tener al menos 6 caracteres.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  ngOnInit() {  
   }
 
   //Register
   async onRegister(){
+
     const user = await this.authSvc.onRegister(this.user);
     if (user) {
       console.log('Se ha creado el usuario exitosamente');
       this.router.navigateByUrl('/graciasxunirte');
+    }
+    else {
+      this.presentAlert();
     }
   }
 

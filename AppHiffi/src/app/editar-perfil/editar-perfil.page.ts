@@ -16,7 +16,7 @@ export class EditarPerfilPage implements OnInit {
   lblUserEmpName: string;
   lblUserPuesto: string;
 
-  constructor( private firebaseService: FirebaseService) {
+  constructor( private firebaseService: FirebaseService, public router: Router) {
     //Crear usuario vacio
     this.usuarioActual = {} as HUsuario;
 
@@ -24,6 +24,7 @@ export class EditarPerfilPage implements OnInit {
    clicBotonGuardar(){ 
      this.firebaseService.insertar(this.usuarioActual).then(() => {
        console.log('Datos de usurio guardado correctamente');
+       this.router.navigate(['/perfil'])
        this.usuarioActual = {} as HUsuario;
      }, (error) =>{
        console.error(error);
@@ -32,7 +33,11 @@ export class EditarPerfilPage implements OnInit {
 
   async ngOnInit() {
     const userData = await this.ObtenerPerfil();
-    this.MostrarDatos(userData);
+    if (userData != null) {
+      this.MostrarDatos(userData);
+    }else{
+      console.log("El usuario aun no tiene datos de perfil")
+    }
   }
 
   ObtenerPerfil(){
