@@ -19,8 +19,6 @@ export class GraficosXuserPage implements OnInit {
   colorArray: any;
   respues = new Array();
   act: Assessment;
-  pruebaGitCommit: any;
-  
   constructor(private firebaseService: FirebaseService,  public alertController: AlertController, public router: Router) { }
 
   async presentAlert() {
