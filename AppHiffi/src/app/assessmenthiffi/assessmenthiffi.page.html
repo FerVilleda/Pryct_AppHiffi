@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content  padding class="background-image">
-  <ion-grid style="margin: 3px;">
+  <ion-grid >
     <ion-slides #slides pager="true" (ionSlideWillChange)="slideChanged()" (ionSlideReachEnd)="isLast()" (ionSlidesDidLoad)="isFirst()" (ionSlideReachStart)="isFirst()">
       <ion-slide Index=1>
         <ion-list>
@@ -261,6 +261,7 @@
         </ion-list>
       </ion-slide>
     </ion-slides>
+  </ion-grid>
     <ion-row>
       <ion-col style="text-align: center;">
         <ion-button shape="round" fill="outline" *ngIf="!disablePrevBtn" (click)="Prev()">ANTERIOR</ion-button>
@@ -269,5 +270,5 @@
         <ion-button *ngIf="!disableNextBtn" shape="round" fill="outline" (click)="Next()">{{buttonName}}</ion-button>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  
 </ion-content>

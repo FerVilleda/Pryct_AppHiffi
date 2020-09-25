@@ -6,34 +6,46 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding class="background-image">
-  <ion-grid style="margin: 3px;">
-    <ion-col style="margin-top: 40px;">
-      <ion-row>
+  <ion-grid style="margin: 25px;">
+    <ion-row>
+      <ion-col>
         <img src="https://www.hiffigroup.org/wp-content/uploads/2020/07/avatar-1.png" >
-        <ion-list>
-          <ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
             <ion-icon slot="start" name="person-outline"></ion-icon>
             <ion-label position="floating">Tu nombre</ion-label>
             <ion-input [(ngModel)]="usuarioActual.nombre" [value]="lblUserName"></ion-input>
-          </ion-item>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
           <ion-item>
             <ion-icon slot="start" name="people-outline"></ion-icon>
             <ion-label position="floating" >Nombre de la Empresa</ion-label>
             <ion-input [(ngModel)]="usuarioActual.nombreEmpresa" [value]="lblUserEmpName"></ion-input>
           </ion-item>
-          <ion-item>
-              <ion-icon slot="start" name="ribbon-outline"></ion-icon>
-              <ion-label position="floating">Puesto</ion-label>
-              <ion-input [(ngModel)]="usuarioActual.puesto" [value]="lblUserPuesto"></ion-input>
-          </ion-item>
-        </ion-list>
-      </ion-row>
-    </ion-col>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-icon slot="start" name="ribbon-outline"></ion-icon>
+          <ion-label position="floating">Puesto</ion-label>
+          <ion-input [(ngModel)]="usuarioActual.puesto" [value]="lblUserPuesto"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
     <ion-row style="margin: 25px;"> 
-      <ion-col   style="display:flex; justify-content: center;" class="col-space-to-separate">
+      <ion-col style="display:flex; justify-content: center;" class="col-space-to-separate">
         <ion-button shape="round" style="margin: 20;" routerLink="/perfil">Cancelar</ion-button>
       </ion-col>
-      <ion-col   style="display:flex; justify-content: center;" class="col-space-to-separate">
+      <ion-col style="display:flex; justify-content: center;" class="col-space-to-separate">
         <ion-button shape="round" style="margin: 20;" (click)="clicBotonGuardar()">Guardar</ion-button>
       </ion-col>
     </ion-row>

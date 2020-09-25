@@ -9,31 +9,42 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content padding class="background-image">
   <ion-grid style="margin: 3px;">
-    <ion-col>
+    <ion-col >
       <ion-row>
         <img src="https://www.hiffigroup.org/wp-content/uploads/2020/07/avatar-1.png" >
-        <ion-list>
+      </ion-row>
+    </ion-col>
+    <ion-row>
+      <ion-col  col-12>
           <ion-item>
             <ion-icon slot="start" name="person-outline"></ion-icon>
             <ion-label position="floating" color = "light" >Tu nombre</ion-label>
             <p>{{ lblUserName }}</p>
           </ion-item>
-          <ion-item>
-            <ion-icon slot="start" name="people-outline"></ion-icon>
-            <ion-label position="floating" color = "light" name="user.nombreEmp">Nombre de la Empresa</ion-label>
-            <p>{{ lblUserEmpName }}</p>
-          </ion-item>
-          <ion-item>
-              <ion-icon slot="start" name="ribbon-outline"></ion-icon>
-              <ion-label position="floating" color = "light" >Puesto</ion-label>
-              <p>{{ lblUserPuesto }}</p>
-          </ion-item>
-        </ion-list>
+        </ion-col>
       </ion-row>
-    </ion-col>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-icon slot="start" name="people-outline"></ion-icon>
+          <ion-label position="floating" color = "light" name="user.nombreEmp">Nombre de la Empresa</ion-label>
+          <p>{{ lblUserEmpName }}</p>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+            <ion-icon slot="start" name="ribbon-outline"></ion-icon>
+            <ion-label position="floating" color = "light" >Puesto</ion-label>
+            <p>{{ lblUserPuesto }}</p>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
     <ion-row style="margin: 25px;"> 
       <ion-col   style="display:flex; justify-content: center;" class="col-space-to-separate">
         <ion-button shape="round" style="margin: 20;" routerLink="/editar-perfil">Editar</ion-button>

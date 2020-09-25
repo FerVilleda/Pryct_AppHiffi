@@ -1,8 +1,14 @@
 ion-content.background-image{
     --background: url('../../assets/fondo2.png') 0 0/100% 100% no-repeat;
 
+    ion-grid{
+        margin: 30px;
+        margin-top: 25px;
+    }
     ion-slide{
-        margin-bottom: 25px;
+         margin-bottom: 25px;
+         
+       
     }
 
 }
