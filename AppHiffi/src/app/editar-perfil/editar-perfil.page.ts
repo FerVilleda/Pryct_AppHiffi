@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { HUsuario } from '../interfaces/husuario';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class EditarPerfilPage implements OnInit {
   lblUserEmpName: string;
   lblUserPuesto: string;
 
-  constructor( private firebaseService: FirebaseService, public router: Router) {
+  constructor( private firebaseService: FirebaseService, public router: Router, public menuCtrl: MenuController) {
     //Crear usuario vacio
     this.usuarioActual = {} as HUsuario;
 
@@ -38,6 +39,10 @@ export class EditarPerfilPage implements OnInit {
     }else{
       console.log("El usuario aun no tiene datos de perfil")
     }
+  }
+
+  ionViewWillEnter(){
+    this.menuCtrl.enable(true);
   }
 
   ObtenerPerfil(){
