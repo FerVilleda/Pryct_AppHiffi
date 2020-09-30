@@ -7,36 +7,44 @@
 </ion-header>
 
 <ion-content padding class="background-image">
-  <ion-grid>
-    <img src="https://www.hiffigroup.org/wp-content/uploads/2020/01/crop-0-0-2560-1703-0-shutterstock_226428607-scaled.jpg">
-    <ion-row>
-      <ion-col>
-        <ion-text color="black">
-          <h3 class="center">INNOVATION CAPABILITY ASSESSMENT</h3>
-        </ion-text>
-      </ion-col>
-    </ion-row >
-    <ion-row>
-      <ion-col>
-        <ion-text color="medium">
-          <h5 class="center">Obtenga un valioso resumen ejecutivo y evaluación de su empresa.</h5>
-        </ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col style="display:flex; justify-content: center;" class="col-space-to-separate">
-        <ion-button  color= "primary" shape="round" routerLink="/assessmenthiffi">ASSESSMENT</ion-button>
-      </ion-col>
-    </ion-row> 
-    <ion-row>
-      <ion-col>
-        <ion-text color="medium">
-          <h2 class="center">NUEVO CURSO ONLINE</h2>
-        </ion-text>
-        <ion-text color="primary">
-          <h5 class="center">DESIGN THINKING HIFFI</h5>
-        </ion-text>
-      </ion-col>
-    </ion-row >
-    </ion-grid>
+
+  <ion-card>
+    <img src="https://www.hiffigroup.org/wp-content/uploads/2020/09/edit2-scaled.jpg">
+    <ion-card-header>
+      <ion-item>
+        <ion-card-title>Innovation Capability Assessment</ion-card-title>       
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      Obtenga un valioso resumen ejecutivo y evaluación del estado actual de la capacidad de innovación en su empresa.
+      <ion-button shape="round" expand="block" routerLink="/assessmenthiffi">Responder Assessment</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="https://www.hiffigroup.org/wp-content/uploads/2020/09/edit1.jpeg">
+    <ion-card-header>
+      <ion-item>
+        <ion-card-title>Holistic Strategic Innovation</ion-card-title>
+        <ion-button fill="outline" slot="end" (click)="openSystem()">Ver mas</ion-button>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      Conoce nuestro nuevo curso dirigido a quienes quieran comprender cómo la innovación apoya al negocio a mantenerse relevante y crecer.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="https://www.hiffigroup.org/wp-content/uploads/2020/09/edit3-scaled.jpg">
+    <ion-card-header>
+      <ion-item>
+        <ion-card-title>HiFFi Framework</ion-card-title>
+        <ion-button fill="outline" slot="end" (click)="openFramework()">Ver mas</ion-button>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      El marco de Hiffi permite a cualquier tipo y tamaño de organización construir y mantener un Sistema de Innovación Estratégica (SIS). 
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

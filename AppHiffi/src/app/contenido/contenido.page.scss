@@ -4,11 +4,13 @@ ion-content.background-image {
     --background: url('../../assets/fondo2.png') 0 0/100% 100% no-repeat;
 
     img { 
-        width:400px !important; 
-        height : 150px !important; 
+        width:auto !important; 
+        height : auto !important; 
         } 
     
-
+    ion-card-title{
+        font-size: 18px;
+    }
    
 
 ion-grid{
