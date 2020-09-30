@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HUsuario } from '../interfaces/husuario';
 import { FirebaseService } from '../services/firebase.service'
-import { database } from 'firebase';
-import { userInfo } from 'os';
-import { ResultadoshiffiPage } from '../resultadoshiffi/resultadoshiffi.page';
-import { stringify } from 'querystring';
+
 
 @Component({
   selector: 'app-perfil',

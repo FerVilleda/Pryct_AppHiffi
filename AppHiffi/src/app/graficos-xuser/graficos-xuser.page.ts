@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { FirebaseService } from '../services/firebase.service'
 import { Assessment } from '../interfaces/assessment';
-//import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -19,7 +19,8 @@ export class GraficosXuserPage implements OnInit {
   colorArray: any;
   respues = new Array();
   act: Assessment;
-  constructor(private firebaseService: FirebaseService,  public alertController: AlertController, public router: Router) { }
+  constructor(private firebaseService: FirebaseService,  public alertController: AlertController, public router: Router,
+    private iab: InAppBrowser) { }
 
   async presentAlert() {
     const alert = await this.alertController.create({
@@ -52,7 +53,7 @@ export class GraficosXuserPage implements OnInit {
   }
   
   openSystem() {
-    console.log("hiffibutton")
+    const browser = this.iab.create('https://www.hiffigroup.org/','_system');
   }
 
   obtenRespuestas(){
