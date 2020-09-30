@@ -3,6 +3,7 @@ import { FirebaseService } from '../services/firebase.service'
 import { Assessment } from '../interfaces/assessment';
 import { IonSlides, NumericValueAccessor } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-assessmenthiffi',
@@ -25,9 +26,21 @@ export class AssessmenthiffiPage implements OnInit {
   slideIndex = 0; 
   e: any;
 
-  constructor(private firebaseService: FirebaseService, public router : Router) {
+  constructor(private firebaseService: FirebaseService, public router : Router, public alertController: AlertController) {
     this.resActual = {} as Assessment;
    }
+
+   async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Algo salió mal',
+      subHeader: 'Verifica tu respuesta',
+      message: 'Elige una respuesta antes de pasar a la siguiente pregunta.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 
   ngOnInit() {
     this.buttonName = "Siguiente";
@@ -36,18 +49,35 @@ export class AssessmenthiffiPage implements OnInit {
 
   async Next(){
     const idx = await this.slideChanged(this.e);
-    if (idx == 6) {
-      this.respuestas.push(this.r1,this.r2,this.r3,this.r4,this.r5,this.r6,this.r7);
-      console.log(this.respuestas);
-      this.resActual.Respuestas = this.respuestas;
-      this.firebaseService.insertarRespuestas(this.resActual).then(() => {
-        console.log('Respuestas guardadas correctamente');
-      }, (error) =>{
-        console.error(error);
-      });
-      this.router.navigateByUrl("/resultadoshiffi");     
-    } else {     
-      this.slides.slideNext();
+    if (idx == 6) {     
+      if (this.checkIfAnswer(this.respuestas,idx)) {
+        console.log(this.respuestas);
+        this.resActual.Respuestas = this.respuestas;
+        this.firebaseService.insertarRespuestas(this.resActual).then(() => {
+          console.log('Respuestas guardadas correctamente');
+        }, (error) =>{
+          console.error(error);
+        });
+        this.router.navigateByUrl("/resultadoshiffi");
+      } else {
+        this.presentAlert();
+      }
+    } else {          
+      if(this.checkIfAnswer(this.respuestas,idx)){
+        this.slides.slideNext();
+      }
+      else{
+        this.presentAlert();
+      }
+    }
+  }
+
+  checkIfAnswer(res: any,ids){
+    if (res[ids]==null) {
+      return false;
+    }
+    else{
+      return true;
     }
   }
 
@@ -61,25 +91,25 @@ export class AssessmenthiffiPage implements OnInit {
     const idx = await this.slideChanged(this.e);
     switch (idx) {
       case 0:
-        this.r1 = Number(event.detail.value);
+        this.respuestas[idx] = Number(event.detail.value);
         break;
       case 1:
-        this.r2 = Number(event.detail.value);
+        this.respuestas[idx] = Number(event.detail.value);
         break;
       case 2:
-        this.r3 = Number(event.detail.value);
+        this.respuestas[idx] = Number(event.detail.value);
         break;
       case 3:
-        this.r4 = Number(event.detail.value);
+        this.respuestas[idx] = Number(event.detail.value);
         break;
       case 4:
-        this.r5 = Number(event.detail.value);
+        this.respuestas[idx] = Number(event.detail.value);
         break;
       case 5:
-        this.r6 = Number(event.detail.value);
+        this.respuestas[idx] = Number(event.detail.value);
         break;
       case 6:
-        this.r7 = Number(event.detail.value);
+        this.respuestas[idx] = Number(event.detail.value);
         break;
       default:
         break;
