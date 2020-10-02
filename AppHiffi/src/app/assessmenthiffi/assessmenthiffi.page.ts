@@ -42,9 +42,53 @@ export class AssessmenthiffiPage implements OnInit {
     await alert.present();
   }
 
+  async presentAlertAlready() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Hola de nuevo!',
+      subHeader: 'Ya has respondido el cuestionario.',
+      message: 'Tus respuestas anteriores se sobreescribirán.',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            this.router.navigateByUrl("/contenido")
+          }
+        }, 
+        {
+          text: 'OK',
+          handler: (cues) => {
+            this.router.navigateByUrl("/assessmenthiffi")
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
   ngOnInit() {
-    this.buttonName = "Siguiente";
-    
+    this.buttonName = "Siguiente";  
+  }
+
+  obtenRespuestas(){
+    return this.firebaseService.obtenerRespuestas().then(function(r){
+      var data: Assessment;
+      data = r;
+      return data;
+    })
+  }
+
+  async ionViewDidEnter() {
+    const act = await this.obtenRespuestas();
+    console.log(act);
+    if (act == null) {
+      console.log("Aun no hay respuestas de este usuario")
+    }else{
+      this.presentAlertAlready();
+    }   
   }
 
   async Next(){
