@@ -81,9 +81,9 @@ export class GraficosXuserPage implements OnInit {
     this.bars = new Chart(this.barChart.nativeElement,{
       type: 'line',
       data: {
-        labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'],
+        labels: ['Estrategia', 'Liderazgo', 'Procesos', 'Estructuras', 'Gente', 'Cultura', 'Redes'],
         datasets: [{
-          label: 'Your responses',
+          label: 'Tus respuestas',
           data: datos,
           backgroundColor: 'rgba(0,0,0,0)', // array should have same number of elements as number of dataset
           borderColor: 'rgb(39, 69, 204)',// array should have same number of elements as number of dataset
