@@ -41,8 +41,14 @@ export class EditarPerfilPage implements OnInit {
     }
   }
 
-  ionViewWillEnter(){
+  async ionViewWillEnter(){
     this.menuCtrl.enable(true);
+    const userData = await this.ObtenerPerfil();
+    if (userData != null) {
+      this.MostrarDatos(userData);
+    }else{
+      console.log("El usuario aun no tiene datos de perfil")
+    }
   }
 
   ObtenerPerfil(){
